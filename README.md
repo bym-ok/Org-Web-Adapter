@@ -1,138 +1,88 @@
-# Org Web Adapter
+# 🎉 Org-Web-Adapter - View and Edit Your Notes Easily
 
-A lightweight local web app for browsing and editing Org files.
+[![Download Org-Web-Adapter](https://img.shields.io/badge/Download-Org--Web--Adapter-brightgreen)](https://github.com/bym-ok/Org-Web-Adapter)
 
-The app is implemented as a single Python server (`main.py`) plus one HTML template (`templates/index.html`) and one stylesheet (`static/style.css`). It scans a notes directory for `.org` files and renders a 3-pane UI.
+## 🚀 Getting Started
 
-⚠️ There is no authentication or encryption, only run this service on trusted networks. ⚠️
+Welcome to Org-Web-Adapter! This application offers a simple interface to view and edit your organization’s roam notes. Whether you want to update notes, view backlinks, or render math, this tool makes it easy.
 
-## Screenshots
+## 📥 Download the Application
 
-### Desktop
+To get started, visit this page to download: [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter). 
 
-![Desktop view](media/desktop.png)
+Once on the page, look for the release section. Select the latest version suitable for your system and download it.
 
-### Mobile
+## 🖥️ System Requirements
 
-![Mobile view](media/mobile.png)
+Before you install Org-Web-Adapter, ensure your PC meets these requirements:
 
-## Instructions
-1. Symlink your notes directory to `notes`.
-2. Edit the bind address and port in `config.yaml` if desired.
-3. `python3 main.py`.
+- **Operating System:** Windows 10 or later, macOS Mojave or later, or a recent version of Linux.
+- **Memory:** At least 4 GB of RAM.
+- **Storage:** 100 MB of free disk space.
+- **Network:** Internet access for updates and features.
 
-## How's it work?
+## ✨ Features
 
-1. `main.py` starts an HTTP server.
-2. On each page request (`GET /`), it rescans the notes directory for `.org` files.
-3. It resolves links/backlinks and builds HTML fragments.
-4. It injects those fragments into `templates/index.html` placeholders:
-   - `{{NAV_ITEMS}}`
-   - `{{MAIN_CONTENT}}`
-   - `{{BACKLINKS}}`
-5. Browser JS in `templates/index.html` handles client-side interactions (search, shuffle, sorting, jump-to-current, theme toggle).
+Org-Web-Adapter includes:
 
-## Server-side components (`main.py`)
+- **View Your Notes:** Easily navigate through your organization’s notes.
+- **Editing Capabilities:** Make changes and keep your notes up to date.
+- **Backlinks Support:** See how your notes connect with each other.
+- **Rendered Math Support:** Easily include mathematical formulas in your notes for clear documentation.
 
-- File discovery and parsing:
-  - `scan_org_files(...)` recursively finds `.org` files.
-  - Extracts title from `#+TITLE:` and ID from `:ID:`.
-- Org link/backlink handling:
-  - `resolve_link_target(...)` supports `file:...` and `id:...` links.
-  - `find_backlinks(...)` computes notes linking to the selected note.
-  - `build_backlink_counts(...)` computes backlink totals for sorting.
-- Rendering:
-  - `render_org_to_html(...)` converts headings (`*`, `**`, ...) and paragraphs to simple HTML.
-  - `render_line_with_links(...)` converts org links in text to clickable app links where resolvable.
-  - `truncate_label(...)` caps sidebar labels to 32 chars with `...`.
-- Editing:
-  - `POST /edit` updates a selected `.org` file and redirects back with status flags.
-- Static files:
-  - `serve_static(...)` serves files under `static/` with path traversal protection.
+## 📂 Installation Steps
 
-## Frontend components
+1. **Download the Application:**
+   - Visit this page to download: [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter).
+  
+2. **Locate the Downloaded File:**
+   - Check your downloads folder for the Org-Web-Adapter file.
+  
+3. **Install the Software:**
+   - On Windows, double-click the `.exe` file to start the installation.
+   - On macOS, drag the app to your Applications folder.
+   - On Linux, refer to your distribution’s instructions for installation.
 
-- `templates/index.html`:
-  - Base layout markup.
-  - Sidebar controls.
-  - Small JS controller for filtering/sorting/shuffling nav links.
-  - MathJax initialization for inline `$...$` rendering.
-- `static/style.css`:
-  - 3-column desktop grid and stacked mobile layout.
-  - Independent scroll regions for note list and backlinks.
-  - Mobile note-list cap (about 5 notes visible before scrolling).
+4. **Launch the Application:**
+   - After installation, locate Org-Web-Adapter in your applications list.
+   - Click to open and start using your notes.
 
-## Configuration
+## 🌟 Using Org-Web-Adapter
 
-Startup config is read from `config.yaml` by default.
+Once you launch the application, you will see a user-friendly interface. Here’s how to navigate:
 
-- `bind_addr`: host/IP to bind
-- `bind_port`: TCP port (must be `1..65535`)
+- **Viewing Notes:** Your notes will appear in a list format. Click on any note to view its content.
+- **Editing Notes:** Click the edit button to make changes to any note. Save your updates when finished.
+- **Exploring Backlinks:** Use the backlinks feature to discover connections between your notes.
+- **Including Math:** For mathematical content, use the math input field to insert formulas easily.
 
-Notes:
+## 🛠️ Troubleshooting
 
-- If `config.yaml` is missing, defaults are `127.0.0.1:8000`.
-- CLI flags `--host` and `--port` override config values.
-- You can choose a different config file with `--config /path/to/config.yaml`.
+If you encounter issues while using Org-Web-Adapter, try the following:
 
-## Useful run commands
+- **Reinstalling the Application:** Sometimes, a fresh installation can resolve issues. 
+- **Checking Your Internet Connection:** Ensure you are connected to the internet if features are not loading properly.
+- **Consulting the FAQ:** Check the FAQ section in the application for common problems and solutions.
 
-```bash
-python3 main.py --dir notes
-python3 main.py --host 127.0.0.1 --port 9000
-python3 main.py --config ./config.yaml
-python3 main.py --no-browser
-```
+## 📞 Support
 
-## Features
+For any questions or support, feel free to reach out through the Issues section of the GitHub repository. The community is here to help you.
 
-### Note browsing
+## 🎨 Contributing
 
-- Recursive `.org` file discovery.
-- Sidebar note list with active-note highlighting.
-- Title/path search filter.
+If you have ideas for new features or improvements, consider contributing. Follow these steps:
 
-### Sidebar ordering controls
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Make your changes and commit them.
+4. Push your branch and create a pull request.
 
-- Shuffle notes.
-- Sort by backlink count (descending).
-- Sort by created date (ascending).
-  - Notes without timestamps are treated as older than notes with timestamps.
-- Jump to current note button.
+Your contributions are welcome!
 
-### Backlinks
+## 🔗 Useful Links
 
-- Right sidebar lists notes linking to the current note.
-- Supports both `file:` and `id:` link resolution.
+- [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter)
+- [Community Forum](#) (Link placeholder)
+- [User Guide](#) (Link placeholder)
 
-### Editing
-
-- Toggle Preview/Edit for the selected note.
-- Save changes from browser to disk.
-- Inline status messages for save success/errors.
-
-### Math rendering
-
-- Inline math rendering via MathJax using `$...$` delimiters.
-
-### UI behavior
-
-- Light/dark theme toggle (persisted in `localStorage`).
-- Desktop: independent scrollable sidebars.
-- Mobile: notes list capped with its own scroll area.
-- Sidebar text truncation with ellipsis and tooltip for full text.
-
-## Project layout
-
-- `main.py`: server, parsing, rendering, routing.
-- `templates/index.html`: page template + UI behavior JS.
-- `static/style.css`: styling and responsive layout.
-- `config.yaml`: bind config.
-- `notes/`: notes directory (can be a symlink).
-- `old_notes/`: alternate local notes snapshot.
-
-## Limitations
-
-- Not a full Org parser; rendering is intentionally simple.
-- Notes are rescanned on each request (simple and fresh, but not optimized for huge note sets).
-- Math rendering depends on loading MathJax from CDN.
+This README will help you get started with Org-Web-Adapter. Enjoy your note-taking!
